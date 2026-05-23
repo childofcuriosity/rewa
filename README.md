@@ -24,17 +24,18 @@ ReWA is a sparse optimization method that reparameterizes the variable as a prod
 
 ## Experiments
 
+### Linear Regression (Synthetic)
+
+Please look ReWA-main\linear\README.md
+
+---
+
 ### CIFAR-10 / CIFAR-100
 
 Please look ReWA-main\CIFAR10\README.md
 
 ---
 
-### Linear Regression (Synthetic)
-
-Please look ReWA-main\linear\README.md
-
----
 
 ### ImageNet
 
