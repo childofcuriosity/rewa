@@ -1,0 +1,846 @@
+
+===== ./run_L1_cifar10.sh =====
+
+for l1 in 1e-5 3e-5 1e-4 3e-4 1e-3
+do
+    python3 main.py --config configs/largescale/resnet18-l1-cifar10.yaml \
+                    --l1-reg $l1 \
+                    --name l1=$l1 \
+                    --multigpu 0
+done
+
+===== ./run_L1_cifar100.sh =====
+
+for l1 in 1e-5 3e-5 1e-4 3e-4 1e-3
+do
+    python3 main.py --config configs/largescale/resnet18-l1-cifar100.yaml \
+                    --l1-reg $l1 \
+                    --name l1=$l1 \
+                    --num_classes 100\
+                    --multigpu 1
+done
+
+===== ./run_STR_cifar10.sh =====
+
+for weight_decay in 1e-5 3e-5 1e-4 3e-4 1e-3
+do
+    python3 main.py --config configs/largescale/resnet18-str-cifar10.yaml \
+                    --weight-decay $weight_decay \
+                    --name weight_decay=$weight_decay \
+                    --multigpu 2
+done
+
+===== ./run_STR_cifar100.sh =====
+
+for weight_decay in 1e-5 3e-5 1e-4 3e-4 1e-3
+do
+    python3 main.py --config configs/largescale/resnet18-str-cifar100.yaml \
+                    --weight-decay $weight_decay \
+                    --name weight_decay=$weight_decay \
+                    --num_classes 100 \
+                    --multigpu 3
+done
+
+===== ./run_ell_9_cifar10.sh =====
+
+for ell_t in 1 2 3 4
+do
+    CUDA_VISIBLE_DEVICES=2 python3 main.py --config configs/largescale/resnet18-ell-cifar10.yaml \
+                    --weight-decay 1e-4 \
+                    --ell_t $ell_t\
+                    --ell_order 9 \
+                    --name new_ell_order=9-weight_decay=1e-4_t=$ell_t \
+                    --multigpu 0 \
+                    --save_every 100
+done
+
+===== ./run_ell_cifar10.sh =====
+
+python3 main.py --config configs/largescale/resnet18-ell-cifar10.yaml \
+    --weight-decay 1e-4 \
+    --ell_eps 0\
+    --ell_order 9 \
+    --ell_t 2 \
+    --name new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam \
+    --multigpu 0 \
+    --save_every 100
+    --ell_base_optimizer AdamW
+python eval_checkpoint.py \
+  --ckpt runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/ \
+  --data 10 \
+  --output_csv_name cifar10_ell9_wd1e-4_t2.csv \
+  --method VanillaConv
+
+===== ./run_evaluate_spred.sh =====
+
+#python3 eval_checkpoint.py --ckpt runs/resnet18-spred-cifar10/pretrain_weight_decay\=1e-4_sgd_new/ --data 10 --output_csv_name cifar10_spred.csv --method 0
+#python3 eval_checkpoint.py --ckpt runs/resnet18-ell-cifar10/new_ell_order\=3-weight_decay\=1e-4/ --data 10 --output_csv_name cifar10_ell_3.csv
+python3 eval_checkpoint.py --ckpt runs/resnet18-ell-t-cifar10/new_ell_order=9-weight_decay=1e-4_t=2/ --data 10 --output_csv_name cifar10_ell_9_t_new.csv
+#python3 eval_checkpoint.py --ckpt runs/resnet18-l1-cifar10/l1\=1e-5 --data 10 --output_csv_name cifar10_l1.csv
+#python3 eval_checkpoint.py --ckpt runs/resnet18-ell-t-cifar10/ --data 10 --output_csv_name cifar10_ell_9_t.csv
+#python3 eval_checkpoint.py --ckpt runs/resnet18-ell-eps-cifar10/ --data 10 --output_csv_name cifar10_ell_9_eps.csv
+#python3 eval_checkpoint.py --ckpt fast_runs/resnet18-spred-cifar10/fast_run_ell9_3e-5__wd\=1e-4/ --data 10 --output_csv_name cifar10.csv --method 0
+#python3 eval_checkpoint.py --ckpt runs/resnet18-spred-cifar100 --data 100 --output_csv_name cifar100.csv --method 0
+
+
+===== ./run_spred_cifar10-finetune.sh =====
+
+rm -rf fast_runs
+fast_spred() {
+    python3 main.py --config configs/largescale/resnet18-spred-cifar10.yaml \
+                    --weight-decay $1 \
+                    --name fast_run_ell9_1e-4__wd=$1 \
+                    --multigpu $2 \
+                    --pretrained runs/resnet18-ell-cifar10/ell_order\=9-weight_decay\=1e-4/0/checkpoints/model_best.pth \
+                    --log-dir fast_runs \
+                    --save_every 100
+
+}
+
+fast_spred 1e-5 2 &
+fast_spred 1e-4 3 &
+
+wait
+
+fast_spred 1e-3 2 &
+fast_spred 1e-2 3 &
+
+wait
+
+fast_spred 3e-5 2 &
+fast_spred 3e-4 3 &
+
+wait
+
+fast_spred 3e-3 2 &
+fast_spred 3e-2 3 &
+
+wait
+
+===== ./run_spred_cifar10.sh =====
+
+for wd in 1e-5 3e-5 1e-4 3e-4 1e-3
+do
+    CUDA_VISIBLE_DEVICES=3 python3 main.py --config configs/largescale/resnet18-ell-cifar10.yaml \
+                    --weight-decay $wd \
+                    --ell_order 3 \
+                    --name new_ell_order=1-weight_decay=$wd \
+                    --multigpu 0
+done
+
+===== ./run_spred_cifar100-finetune.sh =====
+
+for weight_decay in 1e-6 3e-6 1e-5 3e-5 1e-4 3e-4 1e-3 3e-3 1e-2
+do
+    for threshold in 1e-6 1e-5 1e-4 1e-3 1e-2
+    do
+    python3 main.py --config configs/largescale/resnet18-spred-cifar100.yaml \
+                    --weight-decay $weight_decay \
+                    --name pretrain_weight_decay=$weight_decay-finetune_threshold=$threshold \
+                    --multigpu 1 \
+                    --num_classes 100 \
+                    --pretrained runs/resnet18-spred-cifar100/pretrain_weight_decay=$weight_decay/checkpoints/model_best.pth \
+                    --threshold $threshold
+    done
+done
+
+===== ./run_spred_cifar100.sh =====
+
+for weight_decay in 1e-6 3e-6 1e-5 3e-5 1e-4 3e-4 1e-3 3e-3 1e-2
+do
+    python3 main.py --config configs/largescale/resnet18-spred-cifar100.yaml \
+                    --weight-decay $weight_decay \
+                    --name pretrain_weight_decay=$weight_decay \
+                    --num_classes 100 \
+                    --multigpu 1
+done
+
+===== ./run_spred_cifar10_different_init_method.sh =====
+
+#!/bin/bash
+
+weight_decay=1e-3
+threshold=1e-3
+
+# Define two arrays
+first_array=("xavier_uniform_" "kaiming_uniform_" "kaiming_normal_")
+second_array=("0" "1" "2")
+
+train() {
+# python3 main.py --config configs/largescale/resnet18-spred-cifar10.yaml \
+#                             --weight-decay $weight_decay \
+#                             --name pretrain_weight_decay=$weight_decay-init=$init_method-red=$init_red \
+#                             --init_method $init_method \
+#                             --init_red $init_red \
+#                             --multigpu $cuda &
+python3 main.py --config configs/largescale/resnet18-spred-cifar10.yaml \
+                            --weight-decay $weight_decay \
+                            --name pretrain_weight_decay=$weight_decay-init=$1-red=$2 \
+                            --init_method $1 \
+                            --init_red $2 \
+                            --multigpu $3
+
+# python3 main.py --config configs/largescale/resnet18-spred-cifar10.yaml \
+#                         --weight-decay $weight_decay \
+#                         --name pretrain_weight_decay=$weight_decay-init=$1-red=$1-finetune_threshold=$threshold \
+#                         --init_method $1 \
+#                         --init_red $2 \
+#                         --pretrained runs/resnet18-spred-cifar10/pretrain_weight_decay=$weight_decay-init=$1-red=$2/checkpoints/model_best.pth \
+#                         --threshold $threshold \
+#                         --multigpu $3
+}
+
+# train "xavier_uniform_" "independent" "0" &
+# train "kaiming_uniform_" "independent" "1" &
+# train "kaiming_normal_" "independent" "2" &
+
+wait
+
+train "xavier_uniform_" "sqrt" "0" &
+train "kaiming_uniform_" "sqrt" "1" &
+train "kaiming_normal_" "sqrt" "2" &
+
+===== ./run_spred_cifar10_sgd.sh =====
+
+#for weight_decay in 1e-6 3e-6 1e-5 3e-5 1e-4 3e-4 1e-3 3e-3 1e-2
+for weight_decay in 1e-4
+do
+    python3 main.py --config configs/largescale/resnet18-spred-cifar10.yaml \
+                    --weight-decay $weight_decay \
+                    --name pretrain_weight_decay=${weight_decay}_sgd_new \
+                    --multigpu 0 \
+                    --save_every 100
+done
+
+===== ./configs/largescale/mobilenetv1-dense.yaml =====
+
+# Architecture
+arch: MobileNetV1
+
+# ===== Dataset ===== #
+# data: /mnt/data/
+data: /home/ziyin/sparsity/imgnet/
+set: ImageNet
+name: baseline
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00003051757813
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: DenseConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+
+# ===== Hardware setup ===== #
+workers: 20
+
+===== ./configs/largescale/mobilenetv1-spred.yaml =====
+
+# Architecture
+arch: MobileNetV1
+
+# ===== Dataset ===== #
+# data: /mnt/data/
+data: /home/ziyin/sparsity/imgnet/
+set: ImageNet
+name: baseline
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00003051757813
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: SpredConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+
+# ===== Hardware setup ===== #
+workers: 20
+
+===== ./configs/largescale/mobilenetv1-str-imgnet.yaml =====
+
+# config to get 89.01% sparse MobileNetV1 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: MobileNetV1
+
+# ===== Dataset ===== #
+data: /mnt/data/
+set: ImageNet
+name: MobileNetV1_89.01
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00003751757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: STRConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -12800 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/mobilenetv1-str.yaml =====
+
+# config to get 89.01% sparse MobileNetV1 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: MobileNetV1
+
+# ===== Dataset ===== #
+data: /mnt/data/
+set: ImageNet
+name: MobileNetV1_89.01
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00003751757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: STRConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -12800 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-ell-cifar10.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR10
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: ell
+ell_order: 5
+ell_t: 0
+ell_eps: 0.0
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.0001  #0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: VanillaConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-l1-cifar10.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR10
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: VanillaConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-l1-cifar100.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR100
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: VanillaConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-spred-cifar10.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR10
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 1
+
+# ===== Network training config ===== #
+# epochs: 200
+epochs: 50
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: SpredConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-spred-cifar100.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR100
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 200
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: SpredConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-str-cifar10.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR10
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: STRConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet18-str-cifar100.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet18
+
+# ===== Dataset ===== #
+data: rawdata
+set: CIFAR100
+name: my_STR
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: STRConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet50-dense.yaml =====
+
+# Architecture
+arch: ResNet50
+
+# ===== Dataset ===== #
+# data: /mnt/data/
+data: /home/ziyin/sparsity/imgnet/
+set: ImageNet
+name: baseline
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.000030517578125
+momentum: 0.875
+batch_size: 200
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: DenseConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet50-dnw.yaml =====
+
+# config to get 90% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet50
+
+# ===== Dataset ===== #
+data: /mnt/data/
+set: ImageNet
+name: DNW_90
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00003051757813 
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: DNWConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+prune_rate: 0.90
+mode: fan_in
+nonlinearity: relu
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet50-gmp.yaml =====
+
+# config to get 90% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Note that this is not well tested.
+# Architecture
+arch: ResNet50
+
+# ===== Dataset ===== #
+data: /mnt/data/
+set: ImageNet
+name: GMP_90
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00003051757813 
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: GMPConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+prune_rate: 0.90
+mode: fan_in
+nonlinearity: relu
+
+# Play around with these hyperparams, they might not be the optimal
+init_prune_epoch: 20
+final_prune_epoch: 79
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet50-spred-imgnet-multistep_lr.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet50
+
+# ===== Dataset ===== #
+data: /home/ziyin/sparsity/imgnet/
+set: ImageNet
+name: spred_base
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.00256
+lr_policy: multistep_lr
+lr_gamma: 0.1
+lr_adjust: 15
+warmup_length: 0
+
+#0.256
+# ===== Network training config ===== #
+epochs: 50
+#weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: SpredConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet50-spred-imgnet.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet50
+
+# ===== Dataset ===== #
+data: /home/data/corpora/
+set: ImageNet
+name: spred_base
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+#0.256
+# ===== Network training config ===== #
+epochs: 100
+#weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: SpredConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+
+
+===== ./configs/largescale/resnet50-str.yaml =====
+
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: ResNet50
+
+# ===== Dataset ===== #
+#data: /mnt/data/
+data: /home/ziyin/sparsity/imgnet/
+set: ImageNet
+name: STR_90.23
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.256
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 100
+weight_decay: 0.00002251757813 # Change this according to reported numbers in appendix
+momentum: 0.875
+batch_size: 256
+label_smoothing: 0.1
+
+# ===== Sparsity =========== #
+conv_type: STRConv
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+sparse_function: sigmoid
+sInit_value: -3200 # Change this according to reported numbers in appendix
+
+# ===== Hardware setup ===== #
+workers: 20
+

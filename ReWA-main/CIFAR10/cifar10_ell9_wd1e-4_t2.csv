@@ -1,0 +1,20 @@
+cr,acc,ckpt_path,ckpt_time
+10.31495189666748,91.61,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+45.965415954589844,91.6,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+52.41910934448242,91.58,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+56.620574951171875,91.58,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+62.470821380615234,91.54,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+71.43653869628906,91.54,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+82.33071899414062,91.45,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+101.2115249633789,91.22,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+122.39030456542969,90.3,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+157.5611572265625,82.33,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+276.4806823730469,30.22,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+615.7764282226562,11.46,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+2106.3408203125,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+4593.76318359375,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+11365.2412109375,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+28141.13671875,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+52205.75390625,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+73500.2109375,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
+107423.390625,10.0,runs/resnet18-ell-cifar10/new_ell_order=9-weight_decay=1e-4_t=2_eps=0_adam/checkpoints/model_best.pth,Tue Mar 31 17:20:58 2026
