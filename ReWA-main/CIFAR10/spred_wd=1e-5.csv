@@ -1,0 +1,20 @@
+cr,acc,ckpt_path,ckpt_time
+1.0001968145370483,92.95,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+1.0817070007324219,92.96,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+1.1449356079101562,92.97,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+1.2029050588607788,92.97,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+1.3112144470214844,92.93,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+1.564260482788086,92.86,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+2.057080030441284,92.75,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+3.629079818725586,91.91,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+6.656584739685059,80.34,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+14.060458183288574,27.93,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+46.009521484375,10.04,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+133.17794799804688,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+452.7856140136719,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+1013.060546875,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+2884.59375,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+12768.0361328125,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+59425.69921875,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+128414.1640625,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026
+294000.84375,10.0,runs/resnet18-spred-cifar10/pretrain_weight_decay=1e-5/checkpoints/model_best.pth,Fri Jul 10 05:20:32 2026

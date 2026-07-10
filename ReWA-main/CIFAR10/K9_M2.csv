@@ -1,0 +1,20 @@
+cr,acc,ckpt_path,ckpt_time
+10.384995460510254,91.87,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+45.62639236450195,91.88,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+51.968257904052734,91.87,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+56.08590316772461,91.84,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+61.85276412963867,91.85,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+70.58576202392578,91.8,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+81.09896850585938,91.73,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+99.60977172851562,91.47,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+120.63395690917969,90.24,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+155.68606567382812,80.37,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+273.5025634765625,17.5,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+611.3956298828125,15.35,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+2141.466796875,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+4670.58203125,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+11517.5595703125,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+28868.30078125,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+55860.16015625,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+79800.2265625,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026
+126954.9140625,10.0,runs/resnet18-ell-cifar10/K9_M2/checkpoints/model_best.pth,Fri Jul 10 07:15:32 2026

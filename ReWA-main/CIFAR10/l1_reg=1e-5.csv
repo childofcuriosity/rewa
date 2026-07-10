@@ -1,0 +1,20 @@
+cr,acc,ckpt_path,ckpt_time
+1.4953004121780396,93.88,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+4.506458282470703,93.88,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+4.8395304679870605,93.88,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+5.056009769439697,93.88,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+5.35949182510376,93.89,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+5.861875534057617,93.91,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+6.512922286987305,93.89,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+7.784422874450684,93.86,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+9.295371055603027,93.8,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+11.65112590789795,93.68,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+17.236665725708008,93.77,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+25.28329849243164,93.36,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+40.924095153808594,90.57,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+58.62583541870117,77.05,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+105.86292266845703,29.98,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+369.17694091796875,10.0,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+2620.08251953125,12.75,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+9689.533203125,10.0,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
+47139.375,10.0,runs/resnet18-l1-cifar10/l1=1e-5/checkpoints/model_best.pth,Fri Jul 10 09:57:29 2026
