@@ -526,9 +526,10 @@ class ELLOptimizer(torch.optim.Optimizer):
                 # print(p_1_k.shape)
                 # p.data = torch.pow(p_1_k - p_1_k * self.kappa - torch.sign(p_1_k) * self.l1_kappa - self.lr * tmp, self.order)
                 if self.retrain:
-                    p.data = torch.pow(res * self.retrain_mask[i], self.order)
+                    val = res * self.retrain_mask[i]
+                    p.data = torch.sign(val) * torch.pow(torch.abs(val), self.order)
                 else:
-                    p.data = torch.pow(res, self.order)
+                    p.data = torch.sign(res) * torch.pow(torch.abs(res), self.order)
 
             param_group['momentum_buf'] = current_buf
             # self.momentum_buf = tmp_buf

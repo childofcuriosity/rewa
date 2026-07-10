@@ -29,7 +29,7 @@ class CIFAR10:
         use_cuda = torch.cuda.is_available()
 
         # Data loading code
-        kwargs = {"num_workers": 20, "pin_memory": True} if use_cuda else {}
+        kwargs = {"num_workers": 0, "pin_memory": True} if use_cuda else {}
 
 
         normalize = transforms.Normalize(
@@ -82,7 +82,7 @@ class CIFAR100:
         use_cuda = torch.cuda.is_available()
 
         # Data loading code
-        kwargs = {"num_workers": 20, "pin_memory": True} if use_cuda else {}
+        kwargs = {"num_workers": 0, "pin_memory": True} if use_cuda else {}
 
 
         normalize = transforms.Normalize(
@@ -135,7 +135,7 @@ def evaluate_checkpoint(ckpt_path="runs/resnet18-l1-cifar10/l1=1e-3/prune_rate=0
                         num_classes=100):
 
     model = ResNet18(conv_type=conv_type,num_classes=num_classes)
-    state_dict = torch.load(ckpt_path, weights_only=False)
+    state_dict = torch.load(ckpt_path)
     model_state_dict = {}
 
     for k, v in state_dict['state_dict'].items():
