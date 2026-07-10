@@ -1,23 +1,4 @@
 cr,acc,ckpt_path,ckpt_time
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
-inf,10.0,runs/resnet18-ell-cifar10/K2.25_M1.25/checkpoints/model_best.pth,Fri Jul 10 07:30:41 2026
 1.0000356435775757,93.73,runs/resnet18-ell-cifar10/K2.25_M1.25/3/checkpoints/model_best.pth,Fri Jul 10 17:14:34 2026
 1.0459650754928589,93.74,runs/resnet18-ell-cifar10/K2.25_M1.25/3/checkpoints/model_best.pth,Fri Jul 10 17:14:34 2026
 1.098278522491455,93.73,runs/resnet18-ell-cifar10/K2.25_M1.25/3/checkpoints/model_best.pth,Fri Jul 10 17:14:34 2026
