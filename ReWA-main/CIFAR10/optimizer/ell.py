@@ -458,9 +458,9 @@ class ELLOptimizer(torch.optim.Optimizer):
 
                     # 统一 scale 计算（Algorithm 1 & 2 公式相同）
                     if self.ell_eps <= 0.0:
-                        scale = torch.pow(p_1_k, self.ell_t)
+                        scale = torch.pow(torch.abs(p_1_k), self.ell_t)
                     else:
-                        scale = uk / (uk + self.ell_eps) * torch.pow(p_1_k, self.ell_t)
+                        scale = uk / (uk + self.ell_eps) * torch.pow(torch.abs(p_1_k), self.ell_t)
 
                     if self.clip_t:
                         scale = torch.clamp(scale, min=-1, max=1)
@@ -473,9 +473,9 @@ class ELLOptimizer(torch.optim.Optimizer):
 
                 if self.theta_grad:
                     if self.theta_in_buffer:
-                        d_p = d_p * torch.pow(p_1_k, self.order - 1) * self.order
+                        d_p = d_p * torch.pow(torch.abs(p_1_k), self.order - 1) * self.order
                     else:
-                        alpha_ = alpha_ * torch.pow(p_1_k, self.order - 1) * self.order
+                        alpha_ = alpha_ * torch.pow(torch.abs(p_1_k), self.order - 1) * self.order
 
 
                 if self.base_optimizer_type == 'SGD':
