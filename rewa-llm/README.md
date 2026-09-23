@@ -258,6 +258,10 @@ validation perplexity.
 
 ## Full-budget cross-device search
 
+The current handoff state, measured evidence, working hypotheses, checkpoint
+hashes, and next-run protocol are recorded in
+[`FULL_BUDGET_STATUS_AND_INSIGHTS.md`](FULL_BUDGET_STATUS_AND_INSIGHTS.md).
+
 The paused local follow-up showed that the earlier 10M/20M-token runs were
 undertrained: the `K=9, M=2, lr=0.006, epsilon=0, wd=1e-4` anchor improved from
 PPL 12.84 at 6.55M tokens to PPL 6.37 at its step-2200 validation point
