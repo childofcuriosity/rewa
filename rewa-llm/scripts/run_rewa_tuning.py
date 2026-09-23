@@ -178,6 +178,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--confirm-tokens", type=positive_int, default=10_000_000)
     parser.add_argument("--final-tokens", type=positive_int, default=20_000_000)
     parser.add_argument("--screen-eval-iters", type=positive_int, default=20)
+    parser.add_argument("--screen-eval-interval", type=positive_int, default=46)
+    parser.add_argument("--screen-warmup-iters", type=positive_int, default=8)
     parser.add_argument("--confirm-eval-iters", type=positive_int, default=30)
     parser.add_argument("--final-eval-iters", type=positive_int, default=50)
     parser.add_argument("--short-pruning-eval-iters", type=positive_int, default=20)
@@ -189,6 +191,20 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--learning-rates", type=finite_float, nargs="+", default=list(DEFAULT_LRS)
+    )
+    parser.add_argument(
+        "--screen-eps",
+        type=finite_float,
+        nargs="+",
+        default=[0.0],
+        help="ReWA epsilon values included in the first-phase Cartesian grid.",
+    )
+    parser.add_argument(
+        "--screen-weight-decays",
+        type=finite_float,
+        nargs="+",
+        default=[1e-4],
+        help="Y-space weight decays included in the first-phase Cartesian grid.",
     )
     parser.add_argument(
         "--variant-eps", type=finite_float, nargs="+", default=[0.0, 1e-6, 1e-3]
@@ -227,13 +243,23 @@ def validate_args(args: argparse.Namespace) -> None:
         raise ValueError("screen configs and learning rates cannot be empty")
     if any(lr <= 0 for lr in args.learning_rates):
         raise ValueError("learning rates must be positive")
-    if any(value < 0 for value in (*args.variant_eps, *args.variant_weight_decays)):
+    if any(value < 0 for value in (
+        *args.screen_eps,
+        *args.screen_weight_decays,
+        *args.variant_eps,
+        *args.variant_weight_decays,
+    )):
         raise ValueError("epsilon and weight-decay candidates must be non-negative")
     if args.variant_decay_reference_lr <= 0:
         raise ValueError("variant decay reference LR must be positive")
     if not 0.0 <= args.min_lr_ratio <= 1.0:
         raise ValueError("minimum LR ratio must be in [0, 1]")
-    if args.top_k > len(args.screen_configs) * len(args.learning_rates):
+    if args.top_k > (
+        len(args.screen_configs)
+        * len(args.learning_rates)
+        * len(args.screen_eps)
+        * len(args.screen_weight_decays)
+    ):
         raise ValueError("top-k exceeds the screen grid")
     if args.finalists != 2:
         raise ValueError("this protocol selects exactly two complementary finalists")
@@ -242,7 +268,8 @@ def validate_args(args: argparse.Namespace) -> None:
 def phase_definitions(args: argparse.Namespace) -> dict[str, Phase]:
     return {
         "screen": Phase(
-            "screen", args.screen_tokens, args.screen_eval_iters, 46, 8,
+            "screen", args.screen_tokens, args.screen_eval_iters,
+            args.screen_eval_interval, args.screen_warmup_iters,
             args.short_pruning_eval_iters, SHORT_SPARSITIES,
         ),
         "confirm": Phase(
@@ -267,9 +294,11 @@ def expected_iters(phase: Phase, args: argparse.Namespace) -> int:
 
 def screen_specs(args: argparse.Namespace) -> list[TuneSpec]:
     return [
-        TuneSpec(k, m, lr, seed=args.seed)
+        TuneSpec(k, m, lr, eps=eps, weight_decay=decay, seed=args.seed)
         for k, m in args.screen_configs
         for lr in args.learning_rates
+        for eps in args.screen_eps
+        for decay in args.screen_weight_decays
     ]
 
 

@@ -255,3 +255,37 @@ operating point are documented in
 The evaluator ranks all eligible attention and MLP weights together by
 absolute value, sets the globally smallest fraction to zero, and reevaluates
 validation perplexity.
+
+## Full-budget cross-device search
+
+The paused local follow-up showed that the earlier 10M/20M-token runs were
+undertrained: the `K=9, M=2, lr=0.006, epsilon=0, wd=1e-4` anchor improved from
+PPL 12.84 at 6.55M tokens to PPL 6.37 at its step-2200 validation point
+(72.09M tokens). The local checkpoint is intentionally not stored in Git.
+
+On a new Linux/CUDA machine, prepare `data/tinystories` and launch the frozen
+full-budget protocol with:
+
+```bash
+PYTHON=.venv/bin/python \
+BATCH_SIZE=32 GRAD_ACCUM=4 \
+bash scripts/run_full_budget_round1.sh
+```
+
+Every configuration trains for 100M tokens and selects `best.pt` using the
+same fixed validation batches. The script first trains the strong-L1 reference
+with the same budget, then runs a 25-point `epsilon x rewa_weight_decay` grid
+for K9/M2 and seven full-budget K/M controls. All checkpoints are evaluated on
+the same 100 validation batches at 0%, 50%, 70%, and 80% eligible global
+sparsity. There is no short-budget successive halving in this protocol.
+
+The runner is restart-safe. Copying an existing output directory preserves
+resume state; a fresh clone starts each configuration from scratch. Generated
+checkpoints remain under ignored `outputs/` paths. Final tables and figures are
+written to `artifacts/rewa-full-budget/` by
+`scripts/summarize_full_budget.py`.
+
+The fixed historical strong-L1 thresholds are PPL 13.9731 at 70% and 14.6939
+at 80%. The newly trained 100M-token L1 curve is also reported separately, so
+the study exposes both the original target and the strictly matched-budget
+comparison.

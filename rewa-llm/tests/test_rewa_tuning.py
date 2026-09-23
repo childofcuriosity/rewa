@@ -25,6 +25,8 @@ def arguments(**overrides):
         "seed": 0,
         "screen_configs": list(DEFAULT_KM),
         "learning_rates": list(DEFAULT_LRS),
+        "screen_eps": [0.0],
+        "screen_weight_decays": [1e-4],
         "variant_eps": [0.0, 1e-6, 1e-3],
         "variant_weight_decays": [1e-4, 0.1, 1.0],
         "variant_decay_reference_lr": 3e-3,
@@ -98,6 +100,22 @@ class TuningGridTests(unittest.TestCase):
             self.assertLess(spec.m, spec.k - 1)
             self.assertEqual(spec.eps, 0)
             self.assertEqual(spec.weight_decay, 1e-4)
+
+    def test_screen_can_expand_epsilon_and_decay_cartesian_grid(self):
+        specs = screen_specs(
+            arguments(
+                screen_configs=[(3.0, 0.0)],
+                learning_rates=[0.006],
+                screen_eps=[0.0, 1e-4],
+                screen_weight_decays=[1e-2, 1e-1],
+            )
+        )
+
+        self.assertEqual(len(specs), 4)
+        self.assertEqual(
+            {(spec.eps, spec.weight_decay) for spec in specs},
+            {(0.0, 1e-2), (0.0, 1e-1), (1e-4, 1e-2), (1e-4, 1e-1)},
+        )
 
     def test_variant_grid_filters_positive_epsilon_outside_configuration_b(self):
         low_m = TuneSpec(3, 0, 6e-4)
