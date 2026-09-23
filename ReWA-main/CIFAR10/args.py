@@ -16,8 +16,8 @@ def parse_arguments():
     parser.add_argument('--ell_base_optimizer', type=str, default='SGD',
                     choices=['SGD', 'AdamW'],
                     help='Base optimizer for ELL: SGD (Algo1) or AdamW (Algo2)')
-    parser.add_argument("--ell_order", type=int, help="Which ell order to use", default=1)
-    parser.add_argument("--ell_t", type=int, help="Which ell t to use", default=0)
+    parser.add_argument("--ell_order", type=float, help="Reparameterization order K", default=1)
+    parser.add_argument("--ell_t", type=float, help="Adaptive learning-rate exponent M", default=0)
     parser.add_argument("--ell_eps", type=float, help="Which ell t to use", default=0.0)
     parser.add_argument("--set", help="name of dataset", type=str, default="ImageNet")
     parser.add_argument("-a", "--arch", metavar="ARCH", default="ResNet18", help="model architecture")

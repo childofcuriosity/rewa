@@ -1,0 +1,10 @@
+k,m,learning_rate,status,completed_iters,best_val_loss,skipped_optimizer_steps,failure
+3,0,0.003,completed,32,5.50115442276001,0,
+3,0,0.012,completed,32,5.969688415527344,0,
+3,0,0.024,completed,32,6.018787384033203,0,
+3,0,0.036,completed,32,6.101520538330078,0,
+3,0,0.048,failed,23,,0,non-finite training objective
+3,0,0.192,failed,6,,1,non-finite training objective
+9,2,0.012,completed,32,5.937015533447266,0,
+9,2,0.024,completed,32,5.970783233642578,0,
+9,2,0.048,failed,14,,1,non-finite training objective

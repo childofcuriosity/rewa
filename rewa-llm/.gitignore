@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+data/
+outputs/
+*.bin
+*.pt
+*.pth
+*.log
+artifacts/**/run-manifest.pre-*.csv

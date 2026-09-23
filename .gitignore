@@ -1,0 +1,43 @@
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+
+# Editors and local assistants
+.idea/
+.vscode/
+.claude/
+*.swp
+
+# Experiment tracking and logs
+wandb/
+runs/
+output/
+outputs/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.log
+
+# Datasets and serialized data
+rawdata/
+datasets/
+*.beton
+
+# Notebook and OS artifacts
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+
+# Lightweight ReWA-LLM evaluation artifacts are versioned; training runs stay ignored.
+!rewa-llm/artifacts/**/runs/
+!rewa-llm/artifacts/**/runs/**

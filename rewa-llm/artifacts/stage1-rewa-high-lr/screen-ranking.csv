@@ -1,0 +1,9 @@
+rank,phase,run_id,learning_rate,rewa_k,rewa_m,rewa_eps,rewa_weight_decay,best_val_loss,best_val_ppl,selected_next,selection_reason,theory_status
+1,screen,screen/k9-m2-eps0-wd1e-4-lr0.006-seed0,0.006,9.0,2.0,0.0,0.0001,3.71854556799,41.2044214765,yes,top-3 3M validation loss,base-admissible; epsilon=0
+2,screen,screen/k3-m0-eps0-wd1e-4-lr0.006-seed0,0.006,3.0,0.0,0.0,0.0001,3.73065241575,41.706309143,yes,top-3 3M validation loss,base-admissible; epsilon=0
+3,screen,screen/k3-m1-eps0-wd1e-4-lr0.006-seed0,0.006,3.0,1.0,0.0,0.0001,3.73694428205,41.9695469241,yes,top-3 3M validation loss,base-admissible; epsilon=0
+4,screen,screen/k3-m0-eps0-wd1e-4-lr0.012-seed0,0.012,3.0,0.0,0.0,0.0001,4.19598754644,66.4192913353,no,,base-admissible; epsilon=0
+5,screen,screen/k3-m1-eps0-wd1e-4-lr0.012-seed0,0.012,3.0,1.0,0.0,0.0001,4.32495815754,75.5623510789,no,,base-admissible; epsilon=0
+6,screen,screen/k3-m1-eps0-wd1e-4-lr0.024-seed0,0.024,3.0,1.0,0.0,0.0001,4.87795341015,131.361545387,no,,base-admissible; epsilon=0
+7,screen,screen/k3-m0-eps0-wd1e-4-lr0.024-seed0,0.024,3.0,0.0,0.0,0.0001,4.92099833488,137.139455971,no,,base-admissible; epsilon=0
+8,screen,screen/k9-m2-eps0-wd1e-4-lr0.012-seed0,0.012,9.0,2.0,0.0,0.0001,5.00481345654,149.129261474,no,,base-admissible; epsilon=0

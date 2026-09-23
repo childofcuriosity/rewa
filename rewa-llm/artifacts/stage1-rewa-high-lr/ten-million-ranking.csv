@@ -1,0 +1,4 @@
+rank,phase,run_id,learning_rate,rewa_k,rewa_m,rewa_eps,rewa_weight_decay,best_val_loss,best_val_ppl,selected_next,selection_reason,theory_status
+1,confirm,confirm/k3-m1-eps0-wd1e-4-lr0.006-seed0,0.006,3.0,1.0,0.0,0.0001,2.39410808881,10.9584197618,yes,10M geometry for local epsilon/decay search: best unpruned loss,base-admissible; epsilon=0
+2,confirm,confirm/k3-m0-eps0-wd1e-4-lr0.006-seed0,0.006,3.0,0.0,0.0,0.0001,2.39891973337,11.0112748406,no,,base-admissible; epsilon=0
+3,confirm,confirm/k9-m2-eps0-wd1e-4-lr0.006-seed0,0.006,9.0,2.0,0.0,0.0001,2.40547215144,11.083662214,yes,10M geometry for local epsilon/decay search: best mean 70%/80%-pruned loss within 10% unpruned-PPL guard,base-admissible; epsilon=0

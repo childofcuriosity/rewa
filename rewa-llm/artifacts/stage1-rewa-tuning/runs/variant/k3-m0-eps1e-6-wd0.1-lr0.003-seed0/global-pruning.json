@@ -1,0 +1,1017 @@
+{
+  "checkpoint": "/root/autodl-tmp/rewa-llm/outputs/stage1-rewa-tuning/variant/k3-m0-eps1e-6-wd0.1-lr0.003-seed0/best.pt",
+  "data_dir": "/root/autodl-tmp/rewa-llm/data/tinystories",
+  "model_config": {
+    "vocab_size": 8192,
+    "max_seq_len": 256,
+    "n_layer": 6,
+    "n_head": 6,
+    "n_embd": 384,
+    "intermediate_size": 1024,
+    "dropout": 0.0,
+    "rope_base": 10000.0
+  },
+  "checkpoint_iter_num": 306,
+  "checkpoint_best_val_loss": 2.473347036043803,
+  "evaluation": {
+    "batch_size": 16,
+    "seq_len": 256,
+    "eval_iters": 20,
+    "seed": 20260922,
+    "device": "cuda",
+    "dtype": "float16",
+    "rule": "global absolute-magnitude ranking over attention/MLP matrices"
+  },
+  "results": [
+    {
+      "target_sparsity": 0.0,
+      "selected_count": 0,
+      "total_eligible": 10616832,
+      "selection_sparsity": 0.0,
+      "validation_loss": 2.460275673866272,
+      "perplexity": 11.708038695432839,
+      "eligible": {
+        "zeros": 0,
+        "numel": 10616832,
+        "nonzeros": 10616832,
+        "sparsity": 0.0
+      },
+      "whole_model": {
+        "zeros": 0,
+        "numel": 13767552,
+        "nonzeros": 13767552,
+        "sparsity": 0.0
+      },
+      "groups": {
+        "attention": {
+          "zeros": 0,
+          "numel": 3538944,
+          "nonzeros": 3538944,
+          "sparsity": 0.0
+        },
+        "mlp": {
+          "zeros": 0,
+          "numel": 7077888,
+          "nonzeros": 7077888,
+          "sparsity": 0.0
+        }
+      },
+      "layers": [
+        {
+          "name": "blocks.0.attn.q_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.0.attn.k_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.0.attn.v_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.0.attn.o_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.0.mlp.gate_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.0.mlp.up_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.0.mlp.down_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.attn.q_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.attn.k_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.attn.v_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.attn.o_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.mlp.gate_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.mlp.up_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.1.mlp.down_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.attn.q_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.attn.k_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.attn.v_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.attn.o_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.mlp.gate_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.mlp.up_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.2.mlp.down_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.attn.q_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.attn.k_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.attn.v_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.attn.o_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.mlp.gate_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.mlp.up_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.3.mlp.down_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.attn.q_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.attn.k_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.attn.v_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.attn.o_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.mlp.gate_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.mlp.up_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.4.mlp.down_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.attn.q_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.attn.k_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.attn.v_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.attn.o_proj.weight",
+          "zeros": 0,
+          "numel": 147456,
+          "nonzeros": 147456,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.mlp.gate_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.mlp.up_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        },
+        {
+          "name": "blocks.5.mlp.down_proj.weight",
+          "zeros": 0,
+          "numel": 393216,
+          "nonzeros": 393216,
+          "sparsity": 0.0
+        }
+      ]
+    },
+    {
+      "target_sparsity": 0.5,
+      "selected_count": 5308416,
+      "total_eligible": 10616832,
+      "selection_sparsity": 0.5,
+      "validation_loss": 2.6893967032432555,
+      "perplexity": 14.722791028521081,
+      "eligible": {
+        "zeros": 5308416,
+        "numel": 10616832,
+        "nonzeros": 5308416,
+        "sparsity": 0.5
+      },
+      "whole_model": {
+        "zeros": 5308416,
+        "numel": 13767552,
+        "nonzeros": 8459136,
+        "sparsity": 0.3855744289180822
+      },
+      "groups": {
+        "attention": {
+          "zeros": 1726558,
+          "numel": 3538944,
+          "nonzeros": 1812386,
+          "sparsity": 0.4878737838179977
+        },
+        "mlp": {
+          "zeros": 3581858,
+          "numel": 7077888,
+          "nonzeros": 3496030,
+          "sparsity": 0.5060631080910012
+        }
+      },
+      "layers": [
+        {
+          "name": "blocks.0.attn.q_proj.weight",
+          "zeros": 56081,
+          "numel": 147456,
+          "nonzeros": 91375,
+          "sparsity": 0.3803236219618056
+        },
+        {
+          "name": "blocks.0.attn.k_proj.weight",
+          "zeros": 55473,
+          "numel": 147456,
+          "nonzeros": 91983,
+          "sparsity": 0.3762003580729167
+        },
+        {
+          "name": "blocks.0.attn.v_proj.weight",
+          "zeros": 52035,
+          "numel": 147456,
+          "nonzeros": 95421,
+          "sparsity": 0.3528849283854167
+        },
+        {
+          "name": "blocks.0.attn.o_proj.weight",
+          "zeros": 124448,
+          "numel": 147456,
+          "nonzeros": 23008,
+          "sparsity": 0.8439670138888888
+        },
+        {
+          "name": "blocks.0.mlp.gate_proj.weight",
+          "zeros": 139314,
+          "numel": 393216,
+          "nonzeros": 253902,
+          "sparsity": 0.3542938232421875
+        },
+        {
+          "name": "blocks.0.mlp.up_proj.weight",
+          "zeros": 139074,
+          "numel": 393216,
+          "nonzeros": 254142,
+          "sparsity": 0.3536834716796875
+        },
+        {
+          "name": "blocks.0.mlp.down_proj.weight",
+          "zeros": 311918,
+          "numel": 393216,
+          "nonzeros": 81298,
+          "sparsity": 0.7932484944661459
+        },
+        {
+          "name": "blocks.1.attn.q_proj.weight",
+          "zeros": 55715,
+          "numel": 147456,
+          "nonzeros": 91741,
+          "sparsity": 0.3778415256076389
+        },
+        {
+          "name": "blocks.1.attn.k_proj.weight",
+          "zeros": 55909,
+          "numel": 147456,
+          "nonzeros": 91547,
+          "sparsity": 0.3791571723090278
+        },
+        {
+          "name": "blocks.1.attn.v_proj.weight",
+          "zeros": 52265,
+          "numel": 147456,
+          "nonzeros": 95191,
+          "sparsity": 0.3544447157118056
+        },
+        {
+          "name": "blocks.1.attn.o_proj.weight",
+          "zeros": 125925,
+          "numel": 147456,
+          "nonzeros": 21531,
+          "sparsity": 0.8539835611979166
+        },
+        {
+          "name": "blocks.1.mlp.gate_proj.weight",
+          "zeros": 140019,
+          "numel": 393216,
+          "nonzeros": 253197,
+          "sparsity": 0.35608673095703125
+        },
+        {
+          "name": "blocks.1.mlp.up_proj.weight",
+          "zeros": 140391,
+          "numel": 393216,
+          "nonzeros": 252825,
+          "sparsity": 0.35703277587890625
+        },
+        {
+          "name": "blocks.1.mlp.down_proj.weight",
+          "zeros": 317044,
+          "numel": 393216,
+          "nonzeros": 76172,
+          "sparsity": 0.8062845865885416
+        },
+        {
+          "name": "blocks.2.attn.q_proj.weight",
+          "zeros": 56236,
+          "numel": 147456,
+          "nonzeros": 91220,
+          "sparsity": 0.3813747829861111
+        },
+        {
+          "name": "blocks.2.attn.k_proj.weight",
+          "zeros": 55636,
+          "numel": 147456,
+          "nonzeros": 91820,
+          "sparsity": 0.3773057725694444
+        },
+        {
+          "name": "blocks.2.attn.v_proj.weight",
+          "zeros": 52500,
+          "numel": 147456,
+          "nonzeros": 94956,
+          "sparsity": 0.3560384114583333
+        },
+        {
+          "name": "blocks.2.attn.o_proj.weight",
+          "zeros": 123774,
+          "numel": 147456,
+          "nonzeros": 23682,
+          "sparsity": 0.8393961588541666
+        },
+        {
+          "name": "blocks.2.mlp.gate_proj.weight",
+          "zeros": 139920,
+          "numel": 393216,
+          "nonzeros": 253296,
+          "sparsity": 0.3558349609375
+        },
+        {
+          "name": "blocks.2.mlp.up_proj.weight",
+          "zeros": 140031,
+          "numel": 393216,
+          "nonzeros": 253185,
+          "sparsity": 0.35611724853515625
+        },
+        {
+          "name": "blocks.2.mlp.down_proj.weight",
+          "zeros": 318964,
+          "numel": 393216,
+          "nonzeros": 74252,
+          "sparsity": 0.8111673990885416
+        },
+        {
+          "name": "blocks.3.attn.q_proj.weight",
+          "zeros": 56193,
+          "numel": 147456,
+          "nonzeros": 91263,
+          "sparsity": 0.3810831705729167
+        },
+        {
+          "name": "blocks.3.attn.k_proj.weight",
+          "zeros": 55501,
+          "numel": 147456,
+          "nonzeros": 91955,
+          "sparsity": 0.3763902452256944
+        },
+        {
+          "name": "blocks.3.attn.v_proj.weight",
+          "zeros": 52591,
+          "numel": 147456,
+          "nonzeros": 94865,
+          "sparsity": 0.3566555447048611
+        },
+        {
+          "name": "blocks.3.attn.o_proj.weight",
+          "zeros": 123258,
+          "numel": 147456,
+          "nonzeros": 24198,
+          "sparsity": 0.8358968098958334
+        },
+        {
+          "name": "blocks.3.mlp.gate_proj.weight",
+          "zeros": 140241,
+          "numel": 393216,
+          "nonzeros": 252975,
+          "sparsity": 0.35665130615234375
+        },
+        {
+          "name": "blocks.3.mlp.up_proj.weight",
+          "zeros": 139987,
+          "numel": 393216,
+          "nonzeros": 253229,
+          "sparsity": 0.35600535074869794
+        },
+        {
+          "name": "blocks.3.mlp.down_proj.weight",
+          "zeros": 318756,
+          "numel": 393216,
+          "nonzeros": 74460,
+          "sparsity": 0.810638427734375
+        },
+        {
+          "name": "blocks.4.attn.q_proj.weight",
+          "zeros": 55980,
+          "numel": 147456,
+          "nonzeros": 91476,
+          "sparsity": 0.379638671875
+        },
+        {
+          "name": "blocks.4.attn.k_proj.weight",
+          "zeros": 55569,
+          "numel": 147456,
+          "nonzeros": 91887,
+          "sparsity": 0.3768513997395833
+        },
+        {
+          "name": "blocks.4.attn.v_proj.weight",
+          "zeros": 52490,
+          "numel": 147456,
+          "nonzeros": 94966,
+          "sparsity": 0.3559705946180556
+        },
+        {
+          "name": "blocks.4.attn.o_proj.weight",
+          "zeros": 121688,
+          "numel": 147456,
+          "nonzeros": 25768,
+          "sparsity": 0.8252495659722222
+        },
+        {
+          "name": "blocks.4.mlp.gate_proj.weight",
+          "zeros": 140385,
+          "numel": 393216,
+          "nonzeros": 252831,
+          "sparsity": 0.35701751708984375
+        },
+        {
+          "name": "blocks.4.mlp.up_proj.weight",
+          "zeros": 139865,
+          "numel": 393216,
+          "nonzeros": 253351,
+          "sparsity": 0.35569508870442706
+        },
+        {
+          "name": "blocks.4.mlp.down_proj.weight",
+          "zeros": 317204,
+          "numel": 393216,
+          "nonzeros": 76012,
+          "sparsity": 0.8066914876302084
+        },
+        {
+          "name": "blocks.5.attn.q_proj.weight",
+          "zeros": 55706,
+          "numel": 147456,
+          "nonzeros": 91750,
+          "sparsity": 0.3777804904513889
+        },
+        {
+          "name": "blocks.5.attn.k_proj.weight",
+          "zeros": 55405,
+          "numel": 147456,
+          "nonzeros": 92051,
+          "sparsity": 0.3757392035590278
+        },
+        {
+          "name": "blocks.5.attn.v_proj.weight",
+          "zeros": 52203,
+          "numel": 147456,
+          "nonzeros": 95253,
+          "sparsity": 0.3540242513020833
+        },
+        {
+          "name": "blocks.5.attn.o_proj.weight",
+          "zeros": 123977,
+          "numel": 147456,
+          "nonzeros": 23479,
+          "sparsity": 0.8407728407118056
+        },
+        {
+          "name": "blocks.5.mlp.gate_proj.weight",
+          "zeros": 140185,
+          "numel": 393216,
+          "nonzeros": 253031,
+          "sparsity": 0.35650889078776044
+        },
+        {
+          "name": "blocks.5.mlp.up_proj.weight",
+          "zeros": 139916,
+          "numel": 393216,
+          "nonzeros": 253300,
+          "sparsity": 0.3558247884114583
+        },
+        {
+          "name": "blocks.5.mlp.down_proj.weight",
+          "zeros": 318644,
+          "numel": 393216,
+          "nonzeros": 74572,
+          "sparsity": 0.8103535970052084
+        }
+      ]
+    },
+    {
+      "target_sparsity": 0.7,
+      "selected_count": 7431782,
+      "total_eligible": 10616832,
+      "selection_sparsity": 0.6999999623239777,
+      "validation_loss": 8.428576469421387,
+      "perplexity": 4575.981404829164,
+      "eligible": {
+        "zeros": 7431782,
+        "numel": 10616832,
+        "nonzeros": 3185050,
+        "sparsity": 0.6999999623239777
+      },
+      "whole_model": {
+        "zeros": 7431782,
+        "numel": 13767552,
+        "nonzeros": 6335770,
+        "sparsity": 0.5398041714314934
+      },
+      "groups": {
+        "attention": {
+          "zeros": 2417395,
+          "numel": 3538944,
+          "nonzeros": 1121549,
+          "sparsity": 0.6830837108470775
+        },
+        "mlp": {
+          "zeros": 5014387,
+          "numel": 7077888,
+          "nonzeros": 2063501,
+          "sparsity": 0.7084580880624277
+        }
+      },
+      "layers": [
+        {
+          "name": "blocks.0.attn.q_proj.weight",
+          "zeros": 85030,
+          "numel": 147456,
+          "nonzeros": 62426,
+          "sparsity": 0.5766465928819444
+        },
+        {
+          "name": "blocks.0.attn.k_proj.weight",
+          "zeros": 85984,
+          "numel": 147456,
+          "nonzeros": 61472,
+          "sparsity": 0.5831163194444444
+        },
+        {
+          "name": "blocks.0.attn.v_proj.weight",
+          "zeros": 87691,
+          "numel": 147456,
+          "nonzeros": 59765,
+          "sparsity": 0.5946926540798612
+        },
+        {
+          "name": "blocks.0.attn.o_proj.weight",
+          "zeros": 144563,
+          "numel": 147456,
+          "nonzeros": 2893,
+          "sparsity": 0.9803805881076388
+        },
+        {
+          "name": "blocks.0.mlp.gate_proj.weight",
+          "zeros": 226570,
+          "numel": 393216,
+          "nonzeros": 166646,
+          "sparsity": 0.5761973063151041
+        },
+        {
+          "name": "blocks.0.mlp.up_proj.weight",
+          "zeros": 226494,
+          "numel": 393216,
+          "nonzeros": 166722,
+          "sparsity": 0.5760040283203125
+        },
+        {
+          "name": "blocks.0.mlp.down_proj.weight",
+          "zeros": 375091,
+          "numel": 393216,
+          "nonzeros": 18125,
+          "sparsity": 0.9539057413736979
+        },
+        {
+          "name": "blocks.1.attn.q_proj.weight",
+          "zeros": 85348,
+          "numel": 147456,
+          "nonzeros": 62108,
+          "sparsity": 0.5788031684027778
+        },
+        {
+          "name": "blocks.1.attn.k_proj.weight",
+          "zeros": 85513,
+          "numel": 147456,
+          "nonzeros": 61943,
+          "sparsity": 0.5799221462673612
+        },
+        {
+          "name": "blocks.1.attn.v_proj.weight",
+          "zeros": 88431,
+          "numel": 147456,
+          "nonzeros": 59025,
+          "sparsity": 0.5997111002604166
+        },
+        {
+          "name": "blocks.1.attn.o_proj.weight",
+          "zeros": 145016,
+          "numel": 147456,
+          "nonzeros": 2440,
+          "sparsity": 0.9834526909722222
+        },
+        {
+          "name": "blocks.1.mlp.gate_proj.weight",
+          "zeros": 228601,
+          "numel": 393216,
+          "nonzeros": 164615,
+          "sparsity": 0.5813624064127604
+        },
+        {
+          "name": "blocks.1.mlp.up_proj.weight",
+          "zeros": 229385,
+          "numel": 393216,
+          "nonzeros": 163831,
+          "sparsity": 0.5833562215169271
+        },
+        {
+          "name": "blocks.1.mlp.down_proj.weight",
+          "zeros": 378211,
+          "numel": 393216,
+          "nonzeros": 15005,
+          "sparsity": 0.9618403116861979
+        },
+        {
+          "name": "blocks.2.attn.q_proj.weight",
+          "zeros": 85337,
+          "numel": 147456,
+          "nonzeros": 62119,
+          "sparsity": 0.5787285698784722
+        },
+        {
+          "name": "blocks.2.attn.k_proj.weight",
+          "zeros": 85481,
+          "numel": 147456,
+          "nonzeros": 61975,
+          "sparsity": 0.5797051323784722
+        },
+        {
+          "name": "blocks.2.attn.v_proj.weight",
+          "zeros": 88109,
+          "numel": 147456,
+          "nonzeros": 59347,
+          "sparsity": 0.5975273980034722
+        },
+        {
+          "name": "blocks.2.attn.o_proj.weight",
+          "zeros": 144206,
+          "numel": 147456,
+          "nonzeros": 3250,
+          "sparsity": 0.9779595269097222
+        },
+        {
+          "name": "blocks.2.mlp.gate_proj.weight",
+          "zeros": 229508,
+          "numel": 393216,
+          "nonzeros": 163708,
+          "sparsity": 0.5836690266927084
+        },
+        {
+          "name": "blocks.2.mlp.up_proj.weight",
+          "zeros": 229910,
+          "numel": 393216,
+          "nonzeros": 163306,
+          "sparsity": 0.5846913655598959
+        },
+        {
+          "name": "blocks.2.mlp.down_proj.weight",
+          "zeros": 378867,
+          "numel": 393216,
+          "nonzeros": 14349,
+          "sparsity": 0.9635086059570312
+        },
+        {
+          "name": "blocks.3.attn.q_proj.weight",
+          "zeros": 85351,
+          "numel": 147456,
+          "nonzeros": 62105,
+          "sparsity": 0.5788235134548612
+        },
+        {
+          "name": "blocks.3.attn.k_proj.weight",
+          "zeros": 85237,
+          "numel": 147456,
+          "nonzeros": 62219,
+          "sparsity": 0.5780504014756944
+        },
+        {
+          "name": "blocks.3.attn.v_proj.weight",
+          "zeros": 87868,
+          "numel": 147456,
+          "nonzeros": 59588,
+          "sparsity": 0.5958930121527778
+        },
+        {
+          "name": "blocks.3.attn.o_proj.weight",
+          "zeros": 143979,
+          "numel": 147456,
+          "nonzeros": 3477,
+          "sparsity": 0.9764200846354166
+        },
+        {
+          "name": "blocks.3.mlp.gate_proj.weight",
+          "zeros": 229743,
+          "numel": 393216,
+          "nonzeros": 163473,
+          "sparsity": 0.5842666625976562
+        },
+        {
+          "name": "blocks.3.mlp.up_proj.weight",
+          "zeros": 229849,
+          "numel": 393216,
+          "nonzeros": 163367,
+          "sparsity": 0.5845362345377604
+        },
+        {
+          "name": "blocks.3.mlp.down_proj.weight",
+          "zeros": 378737,
+          "numel": 393216,
+          "nonzeros": 14479,
+          "sparsity": 0.9631779988606771
+        },
+        {
+          "name": "blocks.4.attn.q_proj.weight",
+          "zeros": 85240,
+          "numel": 147456,
+          "nonzeros": 62216,
+          "sparsity": 0.5780707465277778
+        },
+        {
+          "name": "blocks.4.attn.k_proj.weight",
+          "zeros": 85258,
+          "numel": 147456,
+          "nonzeros": 62198,
+          "sparsity": 0.5781928168402778
+        },
+        {
+          "name": "blocks.4.attn.v_proj.weight",
+          "zeros": 87253,
+          "numel": 147456,
+          "nonzeros": 60203,
+          "sparsity": 0.5917222764756944
+        },
+        {
+          "name": "blocks.4.attn.o_proj.weight",
+          "zeros": 143070,
+          "numel": 147456,
+          "nonzeros": 4386,
+          "sparsity": 0.9702555338541666
+        },
+        {
+          "name": "blocks.4.mlp.gate_proj.weight",
+          "zeros": 229067,
+          "numel": 393216,
+          "nonzeros": 164149,
+          "sparsity": 0.5825475056966146
+        },
+        {
+          "name": "blocks.4.mlp.up_proj.weight",
+          "zeros": 228840,
+          "numel": 393216,
+          "nonzeros": 164376,
+          "sparsity": 0.58197021484375
+        },
+        {
+          "name": "blocks.4.mlp.down_proj.weight",
+          "zeros": 377609,
+          "numel": 393216,
+          "nonzeros": 15607,
+          "sparsity": 0.9603093465169271
+        },
+        {
+          "name": "blocks.5.attn.q_proj.weight",
+          "zeros": 85517,
+          "numel": 147456,
+          "nonzeros": 61939,
+          "sparsity": 0.5799492730034722
+        },
+        {
+          "name": "blocks.5.attn.k_proj.weight",
+          "zeros": 85697,
+          "numel": 147456,
+          "nonzeros": 61759,
+          "sparsity": 0.5811699761284722
+        },
+        {
+          "name": "blocks.5.attn.v_proj.weight",
+          "zeros": 87877,
+          "numel": 147456,
+          "nonzeros": 59579,
+          "sparsity": 0.5959540473090278
+        },
+        {
+          "name": "blocks.5.attn.o_proj.weight",
+          "zeros": 144339,
+          "numel": 147456,
+          "nonzeros": 3117,
+          "sparsity": 0.9788614908854166
+        },
+        {
+          "name": "blocks.5.mlp.gate_proj.weight",
+          "zeros": 229373,
+          "numel": 393216,
+          "nonzeros": 163843,
+          "sparsity": 0.5833257039388021
+        },
+        {
+          "name": "blocks.5.mlp.up_proj.weight",
+          "zeros": 230052,
+          "numel": 393216,
+          "nonzeros": 163164,
+          "sparsity": 0.585052490234375
+        },
+        {
+          "name": "blocks.5.mlp.down_proj.weight",
+          "zeros": 378480,
+          "numel": 393216,
+          "nonzeros": 14736,
+          "sparsity": 0.9625244140625
+        }
+      ]
+    }
+  ]
+}

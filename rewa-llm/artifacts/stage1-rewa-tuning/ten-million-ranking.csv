@@ -1,0 +1,17 @@
+rank,phase,run_id,learning_rate,rewa_k,rewa_m,rewa_eps,rewa_weight_decay,best_val_loss,best_val_ppl,selected_next,selection_reason,theory_status
+1,variant,variant/k3-m0-eps1e-6-wd1e-4-lr0.003-seed0,0.003,3.0,0.0,1e-06,0.0001,2.46692682902,11.7861702218,yes,best unpruned loss,base-admissible; positive-epsilon Configuration-B range
+2,confirm,confirm/k3-m0-eps0-wd1e-4-lr0.003-seed0,0.003,3.0,0.0,0.0,0.0001,2.46792060534,11.7978888605,no,,base-admissible; epsilon=0
+3,variant,variant/k3-m0-eps0.001-wd1e-4-lr0.003-seed0,0.003,3.0,0.0,0.001,0.0001,2.46807892323,11.7997568252,no,,base-admissible; positive-epsilon Configuration-B range
+4,confirm,confirm/k3-m1-eps0-wd1e-4-lr0.003-seed0,0.003,3.0,1.0,0.0,0.0001,2.47095472018,11.83373937,no,,base-admissible; epsilon=0
+5,variant,variant/k3-m1-eps1e-6-wd1e-4-lr0.003-seed0,0.003,3.0,1.0,1e-06,0.0001,2.47147959868,11.8399522757,no,,base-admissible; positive-epsilon Configuration-B range
+6,variant,variant/k3-m1-eps0.001-wd1e-4-lr0.003-seed0,0.003,3.0,1.0,0.001,0.0001,2.47161996365,11.8416143069,no,,base-admissible; positive-epsilon Configuration-B range
+7,variant,variant/k3-m0-eps0-wd0.1-lr0.003-seed0,0.003,3.0,0.0,0.0,0.1,2.47335142295,11.8621353406,no,,base-admissible; epsilon=0
+8,variant,variant/k3-m0-eps1e-6-wd0.1-lr0.003-seed0,0.003,3.0,0.0,1e-06,0.1,2.47334703604,11.8620833027,no,,base-admissible; positive-epsilon Configuration-B range
+9,variant,variant/k3-m0-eps0.001-wd0.1-lr0.003-seed0,0.003,3.0,0.0,0.001,0.1,2.47334699631,11.8620828313,no,,base-admissible; positive-epsilon Configuration-B range
+10,variant,variant/k3-m1-eps0-wd0.1-lr0.003-seed0,0.003,3.0,1.0,0.0,0.1,2.47736287117,11.9098152512,no,,base-admissible; epsilon=0
+11,variant,variant/k3-m1-eps1e-6-wd0.1-lr0.003-seed0,0.003,3.0,1.0,1e-06,0.1,2.47728552024,11.9088940515,yes,best 50%-pruned loss within 10% unpruned-PPL guard,base-admissible; positive-epsilon Configuration-B range
+12,variant,variant/k3-m1-eps0.001-wd0.1-lr0.003-seed0,0.003,3.0,1.0,0.001,0.1,2.47742799918,11.910590939,no,,base-admissible; positive-epsilon Configuration-B range
+13,confirm,confirm/k5-m0-eps0-wd1e-4-lr0.003-seed0,0.003,5.0,0.0,0.0,0.0001,2.47644349734,11.8988707105,no,,base-admissible; epsilon=0
+14,confirm,confirm/k5-m2-eps0-wd1e-4-lr0.003-seed0,0.003,5.0,2.0,0.0,0.0001,2.47720545133,11.9079405575,no,,base-admissible; epsilon=0
+15,variant,variant/k3-m0-eps0-wd1-lr0.003-seed0,0.003,3.0,0.0,0.0,1.0,2.73523163795,15.4133133308,no,,base-admissible; epsilon=0
+16,variant,variant/k3-m1-eps0-wd1-lr0.003-seed0,0.003,3.0,1.0,0.0,1.0,2.74384856224,15.5467025619,no,,base-admissible; epsilon=0

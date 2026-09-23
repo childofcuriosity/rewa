@@ -1,0 +1,1 @@
+今天在 Seeta3 完成 ReWA-LLM 第一阶段：建立独立项目，实现并验证 14M LLaMA-style 模型、TinyStories 数据管线、Dense AdamW/L1/ReWA-AdamW、global pruning 评估，通过单元测试与 GPU smoke test，并完成单 seed 第一阶段候选实验及对比曲线；不开展第二阶段。

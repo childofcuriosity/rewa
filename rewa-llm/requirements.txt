@@ -1,0 +1,4 @@
+datasets>=3.0,<5
+tokenizers>=0.20,<1
+tqdm>=4.66,<5
+matplotlib>=3.8,<4

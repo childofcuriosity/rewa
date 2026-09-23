@@ -1,0 +1,49 @@
+{
+  "dataset": {
+    "name": "roneneldan/TinyStories",
+    "revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "streaming": true,
+    "text_column": "text"
+  },
+  "format_version": 1,
+  "producer": {
+    "numpy": "2.3.2",
+    "python": "3.12.3",
+    "script": "prepare_tinystories.py"
+  },
+  "splits": {
+    "train": {
+      "bytes": 43237392,
+      "dataset_fingerprint": null,
+      "documents": 100000,
+      "dtype": "uint16-le",
+      "max_documents": 100000,
+      "path": "train.bin",
+      "sha256": "6ac24f6477cafcf982ff4e929b29d614d9da3c0ad436b6c368ccb37713c2d01f",
+      "source_split": "train",
+      "tokens": 21618696
+    },
+    "validation": {
+      "bytes": 1967448,
+      "dataset_fingerprint": null,
+      "documents": 5000,
+      "dtype": "uint16-le",
+      "max_documents": 5000,
+      "path": "validation.bin",
+      "sha256": "aa3d1aa90e64266108b6defb81da395e9e7d1404e5a5eb1a55a82cad3e242735",
+      "source_split": "validation",
+      "tokens": 983724
+    }
+  },
+  "tokenizer": {
+    "eos_token": "<|endoftext|>",
+    "eos_token_id": 1,
+    "path": "tokenizer.json",
+    "sha256": "01865a59df252cc5c2642a91191fc95c44e2a8b7ea20ad3117b2482756c02ce7",
+    "type": "byte-level BPE",
+    "unk_token": "<|unk|>",
+    "unk_token_id": 0,
+    "vocab_size": 8192
+  },
+  "vocab_size": 8192
+}
